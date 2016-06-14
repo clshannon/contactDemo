@@ -1,0 +1,13 @@
+div.page-header(id="header")
+	div.row
+		div.col-md-12
+			h2 User List
+	hr
+	div.row
+		div.col-md-12
+			table.table.table-hover.table-bordered
+				thead
+					th Name					
+				tbody
+					tr(ng-repeat="user in users")
+						td {{user.firstName}} {{user.lastName}}							

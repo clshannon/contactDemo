@@ -1,0 +1,27 @@
+div.page-header(id="header")
+	div.row
+		div.col-md-12
+			h2 Contact List
+	hr
+	div.row
+		div.col-md-12
+			div.btn-group.btn-group-justified
+				div.btn-group(role="group")
+					button.btn.btn-success(type="button", ng-click="addContact()") Add Contact
+	br
+	div.row
+		div.col-md-12
+				input.form-control(type="search", placeholder="Search", ng-model="searchList")
+	div.row
+		div.col-md-12
+			table.table.table-hover.table-bordered
+				thead
+					th(ng-repeat='field in fields') {{field.name | labelCase}}
+					th Actions						
+				tbody
+					tr(ng-repeat='contact in contacts | filter:searchList')
+						td(ng-repeat='field in fields') {{contact[field.name]}}
+						td 
+							div.btn-group(role="group")
+								button.btn.btn-xs.btn-primary(type="button", ng-click="showEdit(contact._id)") Edit
+								button.btn.btn-xs.btn-danger(type="button", ng-click="deleteContact(contact, $index)") Delete					

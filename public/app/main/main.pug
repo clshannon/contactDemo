@@ -1,2 +1,22 @@
-h1 This is a partial
-h2 {{ myVar }}
+.container
+	.jumbotron
+		h1 Contact Demo
+		p Sample app which allows users to sign up, and add contacts to thier account.
+		p Each contact is comprised of a required first and last name, as well as optional fields including:
+			ul
+				li Email
+				li Home Phone
+				li Mobile Phone
+				li Address
+					ul
+						li Street Address
+						li Street Address 2
+						li City
+						li State
+						li Zip
+		p If the address information is provided, an angular-google-maps object is created with a pin indicating the position of the entered address.
+	.row
+		.col-md-6
+			div(ng-include="'/partials/main/details'")
+		.col-md-6
+			div(ng-include="'/partials/main/notes'")

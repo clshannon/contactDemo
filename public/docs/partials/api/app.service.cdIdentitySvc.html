@@ -1,0 +1,45 @@
+<h1><code ng:non-bindable="">cdIdentitySvc</code>
+<div><span class="hint">service in module <code ng:non-bindable="">app</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="app-service-page app-service-cdidentitysvc-page"><p><h5 id="description_service">Service:</h5></p>
+<ul>
+        <li>Sets currentUser variable  which indicates to application whether or not a user is logged in.</li>
+</ul>
+<h5 id="description_points-of-call">Points of call:</h5>
+<ul>
+        <li> <a href="#/api/app.service:cdAuthSvc">cdAuthSvc</a>
+            <ul>
+                <li>Upon successful user login, <a href="#/api/app.service:cdAuthSvc">cdAuthSvc</a>.authenticateUser() method will set currentUser equal to response data from <a href="#/api/app.service:cdUserSvc">cdUserSvc</a>.</li>
+                <li>Upon user logout, <a href="#/api/app.service:cdAuthSvc">cdAuthSvc</a>.logout() method will set currentUser to &quot;undefined&quot;.</li>
+            </ul>
+        </li>
+        <li> <a href="#/api/app.controller:cdNavBarLoginCtrl">cdNavBarLoginCtrl</a>
+            <ul>
+                <li>cdNavBarLoginCtrl sets $scope.idenity = to currentUser</li>
+                <li>cdNavBarLoginCtrl&#39;s view, navbar-login.pug, calls $scope.idenity.isAuthenticated() method as a decision bool which dictates which navbar link and dropdowns are shown.</li>
+            </ul>
+        </li>
+</ul>
+<h5 id="description_login-refresh/redirect-persistance">Login Refresh/Redirect Persistance</h5>
+<ul>
+        <li>The first refresh or page redirect after a successful login, Node will push the bootstrappedUserObject object in a script tag.</li>
+        <li>cdIdentitySvc will check for that script tag object, and if it exists, set currentUser equal to the values in that object.</li>
+</ul></div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_isauthenticated">isAuthenticated()</h3>
+<div class="isauthenticated"><div class="isauthenticated-page"><p>This method returns boolean if currentUser if set.</p>
+</div><h5 id="methods_isauthenticated_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">Boolean=</a></td><td><div class="isauthenticated-page"><p>true/false Boolean flag to indicate if currentUser exists</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_isauthenticated">isAuthenticated(role)</h3>
+<div class="isauthenticated"><div class="isauthenticated-page"><p>This method returns a boolean true/false based on whether currentUser existis and if &#39;role&#39; param is an index of role[].</p>
+</div><h5 id="methods_isauthenticated_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>role</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="isauthenticated-page"><p>Role which used for check</p>
+</div></td></tr></tbody></table><h5 id="methods_isauthenticated_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">Boolean=</a></td><td><div class="isauthenticated-page"><p>true/false Boolean flag to indicate if currentUser is set and has role</p>
+</div></td></tr></table></div>
+</li>
+</ul>
+</div>
+</div>

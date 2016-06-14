@@ -1,0 +1,38 @@
+<h1><code ng:non-bindable="">formField</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">app</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="app-directive-page app-directive-formfield-page"><p><h5 id="description_this-directive">This directive:</h5></p>
+<ol>
+        <li>Creates an html template for form inputs using bootstrap markup.</li>
+        <li>Passes FieldTypes value to template to create ng-message messages for form input errors.</li>
+</ol></div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;form-field
+       record="{Object}"
+       field="{String}"
+       live="{String}"
+       required
+       type="{String}"&gt;
+&lt;/form-field&gt;</pre>
+as attribute<pre class="prettyprint linenums">&lt;form-input form-field
+     record="{Object}"
+     field="{String}"
+     live="{String}"
+     required
+     type="{String}"&gt;
+   ...
+&lt;/form-input&gt;</pre>
+<h3 id="usage_directive-info">Directive info</h3>
+<div class="directive-info"><ul><li>This directive creates new scope.</li>
+</ul>
+</div>
+<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>record</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="app-directive-page app-directive-formfield-page"><p>Two-way binding with $scope.contact oject set in <a href="#/api/app.controller:cdContactAddCtrl">cdContactAddCtrl</a> and <a href="#/api/app.controller:cdContactAddCtrl">cdContactAddCtrl</a> respectively.</p>
+</div></td></tr><tr><td>field</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="app-directive-page app-directive-formfield-page"><p>One-way binding. Passed freom view via form-input element.</p>
+</div></td></tr><tr><td>live</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="app-directive-page app-directive-formfield-page"><p>One-way binding. Passed freom view via form-input element.</p>
+</div></td></tr><tr><td>required</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="app-directive-page app-directive-formfield-page"><p>One-way binding. Passed freom view via form-input element.</p>
+</div></td></tr><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="app-directive-page app-directive-formfield-page"><p>One-way binding. Passed freom view via form-input element.</p>
+</div></td></tr></tbody></table></div>
+</div>

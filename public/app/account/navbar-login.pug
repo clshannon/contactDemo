@@ -1,0 +1,28 @@
+.navbar-right(ng-controller="cdNavBarLoginCtrl")
+	form.navbar-form(ng-hide="identity.isAuthenticated()")
+		.form-group
+			.input-group.input-group-sm
+				input.form-control(placeholder="Username", ng-model="username")
+		.form-group
+			.input-group.input-group-sm
+				input.form-control(type="password", placeholder="Password", ng-model="password")
+		button.btn.btn-primary.btn-sm(ng-click="signIn(username, password)") Sign In
+		a(href='/signup')
+			button.btn.btn-primary.btn-sm Sign Up
+	ul.nav.navbar-nav.navbar-right(ng-show="identity.isAuthenticated()")
+		li
+			a(href='/') Home
+		li
+			a(href="/contacts") Contact List
+		li.dropdown
+			a.dropdown-toggle(href="", data-toggle="dropdown")
+				| {{identity.currentUser.firstName}} {{identity.currentUser.lastName}} &nbsp;
+				b.caret
+			ul.dropdown-menu
+				li
+					a(href="/contact/add") Add Contact
+				li(ng-show="identity.currentUser.isAdmin()")
+					a(href="admin/users") User Admin
+				li.divider(role="separator")
+				li
+					a(href="", ng-click="signOut()") Sign Out

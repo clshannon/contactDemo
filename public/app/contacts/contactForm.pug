@@ -1,0 +1,12 @@
+div.col-sm-6
+	div(ng-repeat='field in fields')
+		form-input(record='contact', name='{{field.name}}', type='{{field.type}}', required='{{field.required}}')
+div.col-sm-6
+	div(ng-repeat='addressField in addressFields')
+		.row.form-group(ng-form="{{addressField.name}}", ng-class="{ 'has-error': {{addressField.name}}.$dirty && {{addressField.name}}.$invalid }")
+			label.col-sm-4.control-label {{addressField.name | labelCase}}
+			div.col-sm-8(ng-switch="addressField.type")
+				select.form-control(ng-switch-when="select", ng-model='contact.address[0][addressField.name]', name="{{addressField.name}}")
+					option
+					option(ng-repeat='(key, value) in addressField.options') {{key}}
+				input.form-control(ng-switch-default type="{{addressField.type}}", ng-model='contact.address[0][addressField.name]' name="{{addressField.name}}")

@@ -1,15 +1,21 @@
 {
   "name": "contacts-demo",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Chris Shannon <chris@readymonster.com>",
   "license": "ISC",
   "dependencies": {
+    "content-filter": "^1.0.22",
     "express": "^4.13.4",
     "pug": "^2.0.0-alpha8"
-  }
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-ngdocs": "^0.2.10"
+  },
+  "description": ""
 }

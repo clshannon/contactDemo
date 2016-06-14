@@ -1,0 +1,17 @@
+div.page-header
+	div.row
+		div.col-md-12
+			h2 Add Contact
+	hr
+	div.row
+		div.col-md-12
+			.panel.panel-success
+				.panel-heading
+					h3.panel-title Contact Details
+				.panel-body
+					form.form-horizontal(name='addContactForm' novalidate )
+						div.row
+							div(ng-include="'partials/contacts/contactForm'")
+						div.row.form-group
+							.col-sm-offset-4
+								button.btn.btn-info(ng-click='addContact()', ng-disabled="addContactForm.$invalid") Save Changes

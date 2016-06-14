@@ -1,0 +1,94 @@
+<h1><code ng:non-bindable="">cdAuthSvc</code>
+<div><span class="hint">service in module <code ng:non-bindable="">app</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="app-service-page app-service-cdauthsvc-page"><p>Service providing methods to authenticate, create, and log out user. Also used to authorize route access per role.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_authenticateuser">authenticateUser(username:, password:)</h3>
+<div class="authenticateuser"><div class="authenticateuser-page"><ol>
+<li>Creates promise via $q.defer()</li>
+<li>Uses $http to post to /login route, passing in username and password variables</li>
+<li>If response success:<br />
+    <ul>
+        <li>Create user object from <a href="#/api/app.service:cdUserSvc">cdUserSvc</a> model</li>
+        <li>Extend $http response data to the new user object</li>
+        <li>Set <a href="#/api/app.service:cdIdentitySvc">cdIdentitySvc</a>.currentUser equal to new user object </li>
+        <li>Resolve promise as true</li>
+    </ul>
+</li>
+<li>If response failure<br />
+    <ul>
+        <li>Resolve promise as false</li>
+    </ul>
+</li>
+<li>Return Promise</li>
+</ol></div><h5 id="methods_authenticateuser_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username:</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="authenticateuser-page"><p>passed from call</p>
+</div></td></tr><tr><td>password:</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="authenticateuser-page"><p>passed from call</p>
+</div></td></tr></tbody></table><h5 id="methods_authenticateuser_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-promise">Promise</a></td><td><div class="authenticateuser-page"><p>Returns a promise</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_authorizecurrentuserforroute">authorizeCurrentUserForRoute(role)</h3>
+<div class="authorizecurrentuserforroute"><div class="authorizecurrentuserforroute-page"><ol>
+<li>Call cdIdentitySvc.isAuthorized passing in role variable
+    <ul>
+        <li>If response success:<br />
+            <ul>
+                <li>Return True</li>
+            </ul>
+        </li>
+        <li>If response failure:<br />
+            <ul>
+                <li>Reject promise with a message of &#39;not authorized&#39;.</li>
+            </ul>
+        </li>
+    </ul>
+</li>
+<li>Return Promise</li>
+</ol></div><h5 id="methods_authorizecurrentuserforroute_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>role</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="authorizecurrentuserforroute-page"><p>passed from call</p>
+</div></td></tr></tbody></table><h5 id="methods_authorizecurrentuserforroute_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-promise">Promise</a></td><td><div class="authorizecurrentuserforroute-page"><p>Returns a promise</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_createuser">createUser(newUserData:)</h3>
+<div class="createuser"><div class="createuser-page"><ol>
+<li>Create newUser object from cdUserSvc model</li>
+<li>Creates promise via $q.defer()</li>
+<li>Call newUser.$save method.</li>
+    <ul>
+        <li>If response success:<br />
+            <ul>
+                <li>Resolve promise as true</li>
+            </ul>
+        </li>
+        <li>If response failure<br />
+            <ul>
+                <li>Reject promise and include response failure reason</li>
+            </ul>
+        </li>
+</li>
+<li>Return Promise</li>
+</ol></div><h5 id="methods_createuser_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>newUserData:</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="createuser-page"><p>passed from call</p>
+</div></td></tr></tbody></table><h5 id="methods_createuser_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-promise">Promise</a></td><td><div class="createuser-page"><p>Returns a promise</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_logoutuser">logoutUser()</h3>
+<div class="logoutuser"><div class="logoutuser-page"><ol>
+<li>Creates promise via $q.defer()</li>
+<li>Uses $http to post to /logout route, passing object setting logout: true.
+    <ul>
+        <li>If response success:<br />
+            <ul>
+                <li>Resolve promise</li>
+            </ul>
+        </li>
+    </ul>
+</li>
+<li>Return Promise</li>
+</ol></div><h5 id="methods_logoutuser_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-promise">Promise</a></td><td><div class="logoutuser-page"><p>Returns a promise</p>
+</div></td></tr></table></div>
+</li>
+</ul>
+</div>
+</div>

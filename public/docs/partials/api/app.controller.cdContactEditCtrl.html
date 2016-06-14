@@ -1,0 +1,84 @@
+<h1><code ng:non-bindable="">cdContactEditCtrl</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">app</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="app-controller-page app-controller-cdcontacteditctrl-page"><p>Controller which handles the editing of a contact&#39;s details.</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/ng.$scope">$scope</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/contact">contact</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/app.service:cdNotifierSvc">cdNotifierSvc</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/app.service:cdGoogleMapsSvc">cdGoogleMapsSvc</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/app.service:cdGoogleMapsCoordinatesSvc">cdGoogleMapsCoordinatesSvc</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/app.service:contactFieldsSvc">contactFieldsSvc</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/app.service:contactAddressFieldsSvc">contactAddressFieldsSvc</a></code>
+</li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_$viewcontentloaded">$viewContentLoaded()</h3>
+<div class="$viewcontentloaded"><div class="-on-viewcontentloaded-page"><p><h6 id="methods_$viewcontentloaded_this-method-handles-intitializing-the-google-map">This method handles intitializing the Google Map.</h6></p>
+<ul>
+        <li>Wait until view content is loaded so Google Maps will have access to the #map element.</li>
+        <li>Check to see if contact&#39;s address is defined
+            <ul>
+                <li>If not, initialze Google Map with no specific address</li>
+                <li>If so, pass the address array to 
+                    <ol>
+                        <li>Pass the address array to <a href="#/api/app.service:cdGoogleMapsCoordinatesSvc">cdGoogleMapsCoordinatesSvc</a> to obtain the addresses coordinates.</li>
+                        <li>Pass returned coordinates to <a href="#/api/app.service:cdGoogleMapsSvc">cdGoogleMapsSvc</a> to initiaclize the map with a location pin and zoomed to that pin.</li>
+                    </ol>
+            </ul>
+        </li>
+</ul></div></div>
+</li>
+<li><h3 id="methods_savecontact">saveContact()</h3>
+<div class="savecontact"><div class="savecontact-page"><p>This method will redirect page to the /contact/add page.</p>
+<ol>
+        <li>Contact Update
+            <ol>
+                <li>ng-Model used to bind input values to contact object values.</li>
+                <li>Call <a href="#/api/app.service:cdContactSvc">cdContactSvc</a>.$update() method to update the contact&#39;s information in the database.</li>
+                <li>Notify user the contact was updated successfully via cdNotifierSvc (toastr notification).</li>
+            </ol>
+        </li>
+        <li> Google Maps 
+            <ul>
+                <li>Check to see if contact&#39;s address is defined
+                    <ul>
+                        <li>If not, initialze Google Map with no specific address</li>
+                        <li>If so, pass the address array to 
+                            <ol>
+                                <li>Pass the address array to <a href="#/api/app.service:cdGoogleMapsCoordinatesSvc">cdGoogleMapsCoordinatesSvc</a> to obtain the addresses coordinates.</li>
+                                <li>Pass returned coordinates to <a href="#/api/app.service:cdGoogleMapsSvc">cdGoogleMapsSvc</a> to initiaclize the map with a location pin and zoomed to that pin.</li>
+                            </ol>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+</ol></div></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_$scopeaddressfields">$scope.addressFields</h3>
+<div class="$scopeaddressfields"><div class="app-controller-page app-controller-cdcontacteditctrl-scope-addressfields-page"><p>Variable containing all contact&#39;s address field information defined in <a href="#/api/app.service:contactAddressFieldsSvc">contactAddressFieldsSvc</a>.</p>
+</div></div>
+</li>
+<li><h3 id="properties_$scopecontact">$scope.contact</h3>
+<div class="$scopecontact"><div class="app-controller-page app-controller-cdcontacteditctrl-scope-contact-page"><p>Variable containing contact object which was created by the $routeProvider in app.js.</p></div></div>
+</li>
+<li><h3 id="properties_$scopefields">$scope.fields</h3>
+<div class="$scopefields"><div class="app-controller-page app-controller-cdcontacteditctrl-scope-fields-page"><p>Variable containing all contacts field information defined in <a href="#/api/app.service:contactFieldsSvc">contactFieldsSvc</a>.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

@@ -1,0 +1,28 @@
+body {
+	padding-top:20px
+}
+.navbar-form, .form-group {
+	margin-left: 10px;
+}		
+
+.navbar-form, button {
+	margin-left: 10px;
+}		
+
+.toast-top-right {
+	top: 70px;
+}
+.map_container{
+  width: 100%;
+  margin: 0 auto;
+}
+#map_container{
+  position: relative;
+  height: 500px;
+}
+#map{
+    height: 500px;
+    overflow: hidden;
+    padding-bottom: 22.25%;
+    position: relative;
+}

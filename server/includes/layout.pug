@@ -1,12 +1,14 @@
 doctype html
 html
 	head
-		base(href="/")
-		link(href="/favico", rel="icon", type="image/x-icon")
-		link(rel="stylesheet", href="/vendor/bootstrap/dist/css/bootstrap.css")
-		link(rel="stylesheet", href="/vendor/toastr/toastr.min.css")
-		link(rel="stylesheet", href="/css/site.css")
+		title Contact Demo
+		base(href='/')
+		link(href='/favico', rel='icon', type='image/x-icon')
+		link(rel='stylesheet', href='/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/vendor/toastr/toastr.min.css')
+		link(rel='stylesheet', href='/css/site.css')
   	
-	body(ng-app="app")
+	body(ng-app='app')
+		include currentUser
 		block main-content
 		include scripts

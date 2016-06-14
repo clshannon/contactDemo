@@ -1,0 +1,58 @@
+<h1><code ng:non-bindable="">cdContactListCtrl</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">app</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="app-controller-page app-controller-cdcontactlistctrl-page"><p>Controller which handles the listing of contacts for a user.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_addcontact">addContact()</h3>
+<div class="addcontact"><div class="addcontact-page"><p>This method will redirect page to the /contact/add page.</p>
+</div></div>
+</li>
+<li><h3 id="methods_deletecontact">deleteContact()</h3>
+<div class="deletecontact"><div class="deletecontact-page"><p>This method will redirect page to the /contact/add page.</p>
+<ol>
+        <li>Call <a href="#/api/app.service:cdContactSvc">cdContactSvc</a>.createUser() passing in contact._id.
+            <ul>
+                <li>If success:
+                    <ol>
+                        <li>Remove deleted contact object from contact object with splice() using index as the identifier.</li>
+                        <li>Notify user the contact was deleted successfully via cdNotifierSvc (toastr notification).</li>
+                    </ol>
+                </li>
+                <li>If faulire:
+                    <ol>
+                        <li>Notify user of failure by displaying reason(error) via cdNotifierSvc (toastr notification).</li>
+                    </ol>
+                </li>
+            </ul>
+        </li>
+</ol></div></div>
+</li>
+<li><h3 id="methods_showedit">showEdit(shouldLog)</h3>
+<div class="showedit"><div class="showedit-page"><p>This method will redirect page to /contact/:id based on what id is passed in.</p>
+</div><h5 id="methods_showedit_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>shouldLog</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="showedit-page"><p>Boolean flag to indicate whethere</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_$scopecontacts">$scope.contacts</h3>
+<div class="$scopecontacts"><div class="app-controller-page app-controller-cdcontactlistctrl-scope-contacts-page"><p>Variable containing all contacts returned from <a href="#/api/app.service:cdContactSvc">cdContactSvc</a>.query() method.</p>
+</div></div>
+</li>
+<li><h3 id="properties_$scopefields">$scope.fields</h3>
+<div class="$scopefields"><div class="app-controller-page app-controller-cdcontactlistctrl-scope-fields-page"><p><h6 id="properties_$scopefields_property">Property:</h6></p>
+<ul>
+        <li>Variable containing field definitions returned from <a href="#/api/app.service:contactFields">contactFields</a>.query() method.</li>
+</ul></div></div>
+</li>
+<li><h3 id="properties_addressfields">addressFields</h3>
+<div class="addressfields"><div class="app-service-page app-service-contactaddressfields-addressfields-page"><p>Variable containing all contacts returned from <a href="#/api/app.service:cdContactSvc">cdContactSvc</a>.query() method.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

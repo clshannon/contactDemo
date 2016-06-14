@@ -1,0 +1,16 @@
+<div class="row form-group" ng-form="{{name}}" ng-class="{ 'has-error': {{name}}.$dirty && {{name}}.$invalid }">
+    <label class='col-sm-4 control-label'> {{name | labelCase}} <span ng-if='required'>*</span></label>
+    <div class="col-sm-8" ng-switch="type">
+
+
+    	<!-- TEL -->
+        <input ng-switch-when="tel" ng-model='record[name]' type='{{type}}' class='form-control' ui-mask="(999) 999-9999"/>
+        
+        <!-- DEFAULT -->
+        <input ng-switch-default ng-model="record[name]" type='{{type}}' class='form-control' required='{{required}}'/>
+	    <div class='col-sm-12 has-error' ng-show="{{name}}.$dirty && {{name}}.$invalid" ng-messages="this.$eval(name)['$error']">
+	       	<small class="text-danger" ng-message='required'> {{ name | labelCase }} is required.</small>
+	       	<small class="text-danger" ng-repeat='(k, v) in types' ng-message='{{k}}'> {{ name | labelCase }} {{v[1]}} </small>
+	    </div>
+    </div>
+</div>

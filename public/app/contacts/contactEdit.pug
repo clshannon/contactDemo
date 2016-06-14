@@ -1,0 +1,35 @@
+div.page-header
+	div.row
+		div.col-md-12
+			h2 {{contact.firstName}} {{contact.lastName}}
+			small.text-muted Details Page
+	hr
+	div.row
+		div.col-md-12
+			.panel.panel-success
+				.panel-heading
+					h3.panel-title Contact Details
+				.panel-body
+					form.form-horizontal(name='editContact' novalidate )
+						div.row
+							div(ng-include="'partials/contacts/contactForm'")
+						.row.form-group
+							.col-sm-offset-4
+								button.btn.btn-info(ng-click='saveContact()', ng-disabled="editContact.$invalid") Save Changes
+	div.row
+		div.col-md-12
+			.panel.panel-info
+				.panel-heading
+					h3.panel-title Map &nbsp; 
+						small
+							i {{contact.address[0].street}} {{contact.address[0].city}} {{contact.address[0].state}}, {{contact.address[0].zip}}
+				.panel-body
+					p.text-danger(ng-show("mapError")) {{mapError}}
+					div.map_container
+						div#map_container
+							div#map
+								ui-gmap-google-map(center='map.center', zoom='map.zoom')
+									ui-gmap-marker(coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id")
+									ui-gmap-window(options="windowOptions" closeClick="closeClick()")
+
+		

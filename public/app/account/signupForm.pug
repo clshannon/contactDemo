@@ -1,0 +1,50 @@
+div.page-header(id="header")
+	div.row
+		div.col-md-12
+			h2 Sign Up Form
+	hr
+	div.row
+		div.col-sm-9
+			form.form-horizontal(name='signupForm', novalidate)
+
+				div.row.form-group(ng-form="email" ng-class="{ 'has-error': email.$dirty && email.password.$invalid }")
+					label.col-sm-4.control-label Email
+					div.col-sm-8
+						input.form-control(name="email" type="email" ng-model="newUser.email" username-unique-validator required)
+						div.col-sm-12
+							small.text-muted Email will serve as your username.
+						div.col-sm-12.has-error(ng-show="email.$dirty && email.$invalid" ng-messages="email.$error")
+							small.text-danger(ng-message='required') Password is required.
+							small.text-danger(ng-message='email') Not a valid email.
+							small.text-danger(ng-message='usernameUnique') Email already exists.
+
+				div.row.form-group(ng-form="password" ng-class="{ 'has-error': password.$dirty && password.$invalid }")
+					label.col-sm-4.control-label Password
+					div.col-sm-8
+						input.form-control(name="password" type="password" ng-model="newUser.password" ng-minlength="8" ng-maxlength="16" validate-password-characters required)
+						div.col-sm-12.has-error(ng-show="password.$dirty && password.$invalid" ng-messages="password.$error")
+							small.text-danger(ng-message='required') Password is required.
+							small.text-danger(ng-message='minlength') Password must contain 8 to 16 characters.
+							small.text-danger(ng-message='maxlength') Password must contain 8 to 16 characters.
+							small.text-danger(ng-message='passwordCharacters') Your password must contain a numeric, uppercase and lowercase character.
+
+
+
+				div.row.form-group(ng-form="firstName" ng-class="{ 'has-error': firstName.$dirty && firstName.password.$invalid }")
+					label.col-sm-4.control-label First Name
+					div.col-sm-8
+						input.form-control(name="firstName" type="text" ng-model="newUser.firstName" required)
+						div.col-sm-12.has-error(ng-show="firstName.$dirty && firstName.$invalid" ng-messages="firstName.$error")
+							small.text-danger(ng-message='required') Password is required.			
+
+
+				div.row.form-group(ng-form="lastName" ng-class="{ 'has-error': lastName.$dirty && lastName.password.$invalid }")
+					label.col-sm-4.control-label Last Name
+					div.col-sm-8
+						input.form-control(name="lastName" type="text" ng-model="newUser.lastName" required)
+						div.col-sm-12.has-error(ng-show="lastName.$dirty && lastName.$invalid" ng-messages="lastName.$error")
+							small.text-danger(ng-message='required') Password is required.		
+
+				.row.form-group
+					.col-sm-offset-4
+						button.btn.btn-primary(ng-click="signup()", ng-disabled="signupForm.$invalid") Submit			

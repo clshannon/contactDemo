@@ -1,0 +1,48 @@
+<h1><code ng:non-bindable="">cdSignupCtrl</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">app</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="app-controller-page app-controller-cdsignupctrl-page"><p>Controller which displays signup page/form. Handles creation of new user success and failures. </p>
+<p><h5 id="description_scope-variables-created">Scope Variables Created</h5>
+        <ul>
+            <li>object: <i>$scope.newUser</i></li>
+                <ul>
+                    <li>$scope.newUser.email</li>
+                    <li>$scope.newUser.password</li>
+                    <li>$scope.newUser.firstName</li>
+                    <li>$scope.newUser.lastName</li>
+                </ul>
+            <li>funtion: <i>$scope.signup</i></li>
+        </ul></p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_signup">signup()</h3>
+<div class="signup"><div class="signup-page"><p>This method:</p>
+<ol>
+        <li>Create newUserData variable
+            <ul>
+                <li>Set newUserData params equal to $scope ng-model variables set on form inputs</li>
+            </ul>
+        </li>
+        <li>Call cdAuthSvc.createUser() passing in newUserData object.
+            <ul>
+                <li>If success:
+                    <ol>
+                        <li>Notify user they were created successfully via cdNotifierSvc (toastr notification).</li>
+                        <li>Change location to document root.</li>
+                    </ol>
+                </li>
+                <li>If faulire:
+                    <ol>
+                        <li>For each reason in reqponse, create notivication via cdNotifierSvc (toastr notification).</li>
+                    </ol>
+                </li>
+            </ul>
+        </li>
+</ol></div></div>
+</li>
+</ul>
+</div>
+</div>

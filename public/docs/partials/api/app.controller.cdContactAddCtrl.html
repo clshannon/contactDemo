@@ -1,0 +1,55 @@
+<h1><code ng:non-bindable="">cdContactAddCtrl</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">app</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="app-controller-page app-controller-cdcontactaddctrl-page"><p>Controller which handles adding a contact to the database.</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/ng.$scope">$scope</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/ng.$location">$location</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/app.service:cdContactSvc">cdContactSvc</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/app.service:cdNotifierSvc">cdNotifierSvc</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/app.service:contactFieldsSvc">contactFieldsSvc</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/app.service:contactAddressFieldsSvc">contactAddressFieldsSvc</a></code>
+</li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_addcontact">addContact()</h3>
+<div class="addcontact"><div class="addcontact-page"><p>This method will redirect page to the /contact/add page.</p>
+<ol>
+        <li>Call <a href="#/api/app.service:cdContactSvc">cdContactSvc</a>.$update() method to add contact to database
+            <ul>
+                <li>If successful:
+                    <ol>
+                        <li>Notify user of success via cdNotifierSvc (toastr notification).</li>
+                        <li>Redirect page to /contact/:id based on new user&#39;s returned _id</li>
+                    </ol>
+                </li>
+            </ul>
+        </li>
+</ol></div></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_$scopeaddressfields">$scope.addressFields</h3>
+<div class="$scopeaddressfields"><div class="app-controller-page app-controller-cdcontactaddctrl-scope-addressfields-page"><p>Variable containing all contact&#39;s address field metadata defined in <a href="#/api/app.service:contactAddressFieldsSvc">contactAddressFieldsSvc</a>.</p>
+</div></div>
+</li>
+<li><h3 id="properties_$scopecontact">$scope.contact</h3>
+<div class="$scopecontact"><div class="app-controller-page app-controller-cdcontactaddctrl-scope-contact-page"><p>Variable containing contact object initialized from <a href="#/api/app.service:cdContactSvc">cdContactSvc</a>.</p></div></div>
+</li>
+<li><h3 id="properties_$scopefields">$scope.fields</h3>
+<div class="$scopefields"><div class="app-controller-page app-controller-cdcontactaddctrl-scope-fields-page"><p>Variable containing all contacts field metadata defined in <a href="#/api/app.service:contactFieldsSvc">contactFieldsSvc</a>.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>
