@@ -1,4 +1,5 @@
 var express = require('express'),
+	compression = require('compression'),
 	cookieParser = require('cookie-parser'),
 	session = require('express-session'),
 	bodyParser = require('body-parser'),
@@ -7,6 +8,7 @@ var express = require('express'),
 	filter = require('content-filter');
 
 module.exports = function(app, config) {
+	app.use(compression());
 	app.set('views', config.rootPath + '/server/views');
 	app.set('view engine', 'pug');
 	app.use(require('express-session')({
