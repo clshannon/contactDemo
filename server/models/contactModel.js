@@ -31,10 +31,10 @@ var contactSchema = mongoose.Schema({
             max: 64
         },
         homePhone: {
-            type: Number
+            type: String
         },
         mobilePhone: {
-            type: Number
+            type: String
         },
         address: [ addressSchema ],
     });
