@@ -23,7 +23,7 @@ angular.module('app')
                 var fieldMetadata = [
                     {type: 'text',name: 'firstName',required: true},
                     {type: 'text',name: 'lastName',required: true},
-                    {type: 'email',name: 'email'},
+                    {type: 'email',name: 'email',required: true},
                     {type: 'tel',name: 'homePhone'},
                     {type: 'tel',name: 'mobilePhone'}
                 ];
